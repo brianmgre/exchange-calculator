@@ -1,5 +1,5 @@
 import React from "react";
-import { currencyNames } from "./newmoney";
+import { currencyNames } from "./allCurrencyNames.js";
 
 function ExchangeGrid(props) {
   const { rates, baseCurrency, baseAmount } = props;
