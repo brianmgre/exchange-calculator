@@ -29,6 +29,6 @@ export async function getExchangeRates(base, currencies) {
 
     return exchangeRates.data;
   } catch {
-    return "There was an error with your request";
+    throw new Error("There was an error with your request");
   }
 }

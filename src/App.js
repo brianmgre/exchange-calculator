@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { getExchangeRates } from "./components/api";
 import "./App.css";
 import ExchangeGrid from "./components/exchangeGrid";
+import AddMoreCurrencies from "./components/addMoreCurrencies";
 
 class App extends Component {
   state = {
@@ -12,10 +13,10 @@ class App extends Component {
   };
 
   componentDidMount() {
-    this.fetchCurriencies(this.state.rates);
+    this.fetchCurrencies(this.state.rates);
   }
 
-  fetchCurriencies = currencies => {
+  fetchCurrencies = currencies => {
     getExchangeRates(this.state.baseCurrency, currencies)
       .then(response => {
         this.setState({
@@ -29,9 +30,15 @@ class App extends Component {
       });
   };
 
+  updateState = newRates => {
+    this.setState({
+      rates: newRates
+    });
+  };
+
   render() {
     const { rates, baseCurrency, baseAmount } = this.state;
-    console.log(this.state.rates);
+    console.log("rate", this.state);
     return (
       <div className="App">
         heyo
@@ -39,7 +46,9 @@ class App extends Component {
           rates={rates}
           baseCurrency={baseCurrency}
           baseAmount={baseAmount}
+          updateState={this.updateState}
         />
+        <AddMoreCurrencies fetchCurrencies={this.fetchCurrencies} />
       </div>
     );
   }
