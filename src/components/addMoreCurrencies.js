@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { TextField, Typography, withStyles } from "@material-ui/core";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import { addMoreStyles } from "./styles/addMoreStyles";
 import Icon from "@material-ui/core/Icon";
 
@@ -83,7 +83,7 @@ class AddMoreCurrencies extends Component {
   }
 }
 
-// AddMoreCurrencies.propTypes = {
-//   fetchCurrencies: PropTypes.func.isRequired
-// };
+AddMoreCurrencies.propTypes = {
+  fetchCurrencies: PropTypes.func.isRequired
+};
 export default withStyles(addMoreStyles)(AddMoreCurrencies);

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { TextField, Typography, withStyles } from "@material-ui/core";
 import { currencyNames } from "./currencyHelper/allCurrencyNames";
 import { baseInputStyles } from "./styles/baseInputStyle";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 
 class BaseInput extends Component {
   state = {
@@ -57,9 +57,9 @@ class BaseInput extends Component {
   }
 }
 
-// BaseInput.propTypes = {
-//   updateBaseAmount: PropTypes.func.isRequired,
-//   baseCurrency: PropTypes.string.isRequired
-// };
+BaseInput.propTypes = {
+  updateBaseAmount: PropTypes.func.isRequired,
+  baseCurrency: PropTypes.string.isRequired
+};
 
 export default withStyles(baseInputStyles)(BaseInput);

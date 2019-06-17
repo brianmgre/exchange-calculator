@@ -1,5 +1,5 @@
 import React from "react";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import { currencyNames } from "./currencyHelper/allCurrencyNames";
 import { gridStyles } from "./styles/gridStyles";
 import { withStyles, Typography } from "@material-ui/core";
@@ -57,11 +57,11 @@ function ExchangeGrid(props) {
   return <React.Fragment>{allRates}</React.Fragment>;
 }
 
-// ExchangeGrid.propTypes = {
-//   rates: PropTypes.object.isRequired,
-//   baseCurrency: PropTypes.string.isRequired,
-//   baseAmount: PropTypes.string.isRequired,
-//   updateRates: PropTypes.func.isRequired
-// };
+ExchangeGrid.propTypes = {
+  rates: PropTypes.object.isRequired,
+  baseCurrency: PropTypes.string.isRequired,
+  baseAmount: PropTypes.string.isRequired,
+  updateRates: PropTypes.func.isRequired
+};
 
 export default withStyles(gridStyles)(ExchangeGrid);
