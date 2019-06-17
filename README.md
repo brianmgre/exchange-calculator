@@ -1,11 +1,12 @@
-##Foreign Exchange Calculator
+## Foreign Exchange Calculator
 
-This React application was built with Yarn. Therefore, use Yarn install to once you have cloned the repo.
+This React application was built with Yarn. Once you have cloned/forked the repo use Yarn install.
 
-Tech:
-API: https://api.exchangeratesapi.io/
-Docker
-React
-Material-UI
+### Tech:
+<ul>
+<li>API: https://api.exchangeratesapi.io/</li>
+<li>Docker</li>
+<li>React</li>
+  <li>Material-UI</li></ul>
 
-site is live on Netlify here
+site is live on Netlify forex-calc.netlify.com
