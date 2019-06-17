@@ -9,4 +9,4 @@ This React application was built with Yarn. Once you have cloned/forked the repo
 <li>React</li>
   <li>Material-UI</li></ul>
 
-site is live on Netlify forex-calc.netlify.com
+site is live on Netlify https:forex-calc.netlify.com
