@@ -13,6 +13,7 @@ const startingCurrencies = [
 ];
 const url = "https://api.exchangeratesapi.io/latest?";
 
+//checks to see if a new currency is passed. When component mounts starting currencies with be added
 export async function getExchangeRates(base, currencies) {
   try {
     let currencyGroup = "";

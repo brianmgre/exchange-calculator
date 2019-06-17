@@ -1,26 +1,30 @@
 import React, { Component } from "react";
 import { getExchangeRates } from "./components/api";
-import "./App.css";
+import { styles } from "./components/styles/appStyles";
+import { withStyles, Typography } from "@material-ui/core";
 import ExchangeGrid from "./components/exchangeGrid";
 import AddMoreCurrencies from "./components/addMoreCurrencies";
+import BaseInput from "./components/baseInput";
 
 class App extends Component {
   state = {
     baseCurrency: "USD",
-    baseAmount: (1.0).toFixed(4),
+    baseAmount: (1.0).toFixed(2),
     rates: {},
-    error: false
+    error: null
   };
 
   componentDidMount() {
     this.fetchCurrencies(this.state.rates);
   }
 
+  //set response from api call on state
   fetchCurrencies = currencies => {
     getExchangeRates(this.state.baseCurrency, currencies)
       .then(response => {
         this.setState({
-          rates: Object.assign(this.state.rates, response.rates)
+          rates: Object.assign(this.state.rates, response.rates),
+          error: null
         });
       })
       .catch(err => {
@@ -30,28 +34,43 @@ class App extends Component {
       });
   };
 
-  updateState = newRates => {
+  //updates rates with a new object after a rate is removed
+  updateRates = newRates => {
     this.setState({
       rates: newRates
     });
   };
 
+  updateBaseAmount = newValue => {
+    this.setState({
+      baseAmount: newValue
+    });
+  };
+
   render() {
     const { rates, baseCurrency, baseAmount } = this.state;
-    console.log("rate", this.state);
+    const { classes, error } = this.props;
+
     return (
-      <div className="App">
-        heyo
-        <ExchangeGrid
-          rates={rates}
+      <div className={classes.root}>
+        <BaseInput
+          updateBaseAmount={this.updateBaseAmount}
           baseCurrency={baseCurrency}
-          baseAmount={baseAmount}
-          updateState={this.updateState}
         />
-        <AddMoreCurrencies fetchCurrencies={this.fetchCurrencies} />
+        <div className={classes.excBtnContainer}>
+          <ExchangeGrid
+            rates={rates}
+            baseCurrency={baseCurrency}
+            baseAmount={baseAmount}
+            updateRates={this.updateRates}
+          />
+
+          <AddMoreCurrencies fetchCurrencies={this.fetchCurrencies} />
+          {error && <Typography variant="body1">{error}</Typography>}
+        </div>
       </div>
     );
   }
 }
 
-export default App;
+export default withStyles(styles)(App);
