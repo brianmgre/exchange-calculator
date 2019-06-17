@@ -1,6 +1,6 @@
 ## Foreign Exchange Calculator
 
-This React application was built with Yarn. Once you have cloned/forked the repo use Yarn install.
+This React application was built with Yarn. Once you have cloned/forked the repo use Yarn install. Then Yarn start to run the application. 
 
 ### Tech:
 <ul>
